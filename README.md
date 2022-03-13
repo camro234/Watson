@@ -2,10 +2,23 @@
 
 Watson is a .NET tool designed to enumerate missing KBs and suggest exploits for Privilege Escalation vulnerabilities.
 
+## Customisations
+Forked this from the original (and forked again from jezzza234, which is another of my accounts, so I can keep everything in one place).
+I found that Watson didn't work on older machines anymore as that was broken with v2. I modified it so that it works with all versions, from v1 to v2.
+
+It was a pity when running through old Windows machines in HTB that relied on Watson.exe being run, that Watson no longer supported the old machines when version 2 was released. Not sure why, but I made sure to include the original code alongside the new code so that **all** versions are supported.
+
+Also for those like me that rely soley on Kali Linux and don't have a Windows machine for compiling on, I've built the release versions for several .Net versions and processor types. There are releases for:
+- x86 and x64, .Net 2
+- x86 and x64, .Net 3.5
+- x86 and x64, .Net 4
+- x86 and x64, .Net 4.7
+
 ## Supported Versions
 
 - Windows 10 1507, 1511, 1607, 1703, 1709, 1803, 1809, 1903, 1909, 2004
 - Server 2016 & 2019
+- Earlier Windows versions that were supported originally by v1
 
 ## Usage
 
@@ -23,6 +36,21 @@ C:\> Watson.exe
 
  [*] OS Build Number: 14393
  [*] Enumerating installed KBs...
+ 
+ [*] Appears vulnerable to CVE-2018-8897
+   [>] Description: An EoP exists when the Windows kernel fails to properly handle objects in memory.
+   [>] Exploit: https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/local/mov_ss.rb
+   [>] Notes: May not work on all hypervisors.
+   
+ [*] Appears vulnerable to CVE-2018-0952
+   [>] Description: An EoP exists when Diagnostics Hub Standard Collector allows file creation in arbitrary locations. 
+   [>] Exploit: https://www.exploit-db.com/exploits/45244/
+   [>] Notes: None
+   
+ [*] Appears vulnerable to CVE-2018-8440
+   [>] Description: An EoP exists when Windows improperly handles calls to Advanced Local Procedure Call (ALPC).
+   [>] Exploit: https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/local/alpc_taskscheduler.rb
+   [>] Notes: None.
 
  [!] CVE-2019-0836 : VULNERABLE
   [>] https://exploit-db.com/exploits/46718
